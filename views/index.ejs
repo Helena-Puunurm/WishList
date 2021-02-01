@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/c290d67193.js" crossorigin="anonymous"></script>
+    <title>Wish List</title>
+</head>
+
+<body>
+    <div class="box" id="heading">
+        <h1>WishList</h1>
+    </div>
+
+    <div class="box">
+
+        <div class="table">
+            <table>
+                <th>
+                    <p>Wish List</p>
+                </th>
+                <th>
+                    <p>Price</p>
+                </th>
+
+                <% for(let i = 1; i < toDoItems.length; i++) { %>
+
+
+                <tr>
+                    <td>
+                        <p><%= toDoItems[i].description %></p>
+                    </td>
+                    <td>
+                        <p><%= toDoItems[i].price %></p>
+                    </td>
+                    <td>
+                        <form action="/delete" method="POST">
+                            <input type="hidden" value="<%= toDoItems[i].description %>" name="hidden" >
+                            <button type="submit"><i class="fas fa-trash-alt"></i></button>  
+
+                        </form>
+                    </td>
+
+                </tr>
+
+
+                <% } %>
+
+</table>
+</div>
+                <form action="/" method="POST">
+                    <input type="text" name="newTask" placeholder="Add New Wish">
+                    <input type="number" name="newPrice" placeholder="Add a Price">
+                    <button type="submit">+</button>
+                </form>
+        
+
+        
+    </div>
+    <footer>
+        <span>JV &#169 2021</span>
+    </footer>
+
+</body>
+
+</html>
